@@ -1,39 +1,179 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import { caseStudies } from "@/lib/work";
 
 export default function Nav() {
+  const [projectsOpen, setProjectsOpen] = useState(false);
+  const desktopWrapRef = useRef<HTMLDivElement>(null);
+  const mobileWrapRef = useRef<HTMLDivElement>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // close on Escape
+  useEffect(() => {
+    if (!projectsOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setProjectsOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [projectsOpen]);
+
+  // close on click outside either dropdown
+  useEffect(() => {
+    if (!projectsOpen) return;
+    const onClick = (e: MouseEvent) => {
+      const t = e.target as Node;
+      const inDesktop = desktopWrapRef.current?.contains(t) ?? false;
+      const inMobile = mobileWrapRef.current?.contains(t) ?? false;
+      if (!inDesktop && !inMobile) setProjectsOpen(false);
+    };
+    document.addEventListener("mousedown", onClick);
+    return () => document.removeEventListener("mousedown", onClick);
+  }, [projectsOpen]);
+
+  const hoverOpen = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setProjectsOpen(true);
+  };
+  const hoverClose = () => {
+    closeTimer.current = setTimeout(() => setProjectsOpen(false), 180);
+  };
+
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-ink/75 backdrop-blur-md">
       <nav
         aria-label="Main"
-        className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8"
+        className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 sm:px-8"
       >
-        <a href="#top" className="flex items-center gap-3">
+        <a href="#top" className="flex shrink-0 items-center gap-3">
           <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gold font-display text-lg font-bold text-ink">
             C
           </span>
-          <span className="font-display text-[15px] font-semibold tracking-tight text-snow">
+          <span className="hidden font-display text-[15px] font-semibold tracking-tight text-snow sm:block">
             Ceejay Cumberbatch
           </span>
         </a>
 
-        <div className="hidden items-center gap-5 text-[13px] text-mist lg:flex">
-          {caseStudies.map((cs) => (
-            <a key={cs.id} href={`#work-${cs.id}`} className="whitespace-nowrap transition hover:text-snow">
-              {cs.shortName ?? cs.name}
-            </a>
-          ))}
-          <a href="#vision" className="transition hover:text-snow">
+        <div className="hidden items-center gap-6 text-[13px] text-mist lg:flex">
+          {/* Projects dropdown */}
+          <div
+            ref={desktopWrapRef}
+            className="relative"
+            onMouseEnter={hoverOpen}
+            onMouseLeave={hoverClose}
+          >
+            <button
+              type="button"
+              aria-expanded={projectsOpen}
+              aria-controls="nav-projects-desktop"
+              onClick={() => setProjectsOpen((v) => !v)}
+              className={`flex items-center gap-1.5 py-2 transition ${
+                projectsOpen ? "text-snow" : "hover:text-snow"
+              }`}
+            >
+              Projects
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+                className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                  projectsOpen ? "rotate-180" : ""
+                }`}
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+
+            {projectsOpen && (
+              <div
+                id="nav-projects-desktop"
+                className="absolute left-1/2 top-full w-[360px] max-w-[calc(100vw-2.5rem)] -translate-x-1/2 rounded-xl border border-line bg-panel p-2 shadow-2xl"
+              >
+                {caseStudies.map((cs) => (
+                  <a
+                    key={cs.id}
+                    href={`#work-${cs.id}`}
+                    onClick={() => setProjectsOpen(false)}
+                    className="block rounded-lg px-3 py-2.5 transition hover:bg-white/5"
+                  >
+                    <span className="block text-sm font-semibold text-snow">
+                      {cs.name}
+                    </span>
+                    <span className="mt-0.5 block text-xs leading-snug text-mist">
+                      {cs.tagline}
+                    </span>
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <a href="#vision" className="whitespace-nowrap py-2 transition hover:text-snow">
             Vision
           </a>
-          <a href="#accessibility" className="transition hover:text-snow">
+          <a href="#accessibility" className="whitespace-nowrap py-2 transition hover:text-snow">
             Accessibility
           </a>
-          <a href="#capabilities" className="transition hover:text-snow">
+          <a href="#capabilities" className="whitespace-nowrap py-2 transition hover:text-snow">
             Capabilities
           </a>
         </div>
 
+        {/* Mobile + compact: Projects dropdown lives here too */}
         <div className="flex items-center gap-3">
+          <div ref={mobileWrapRef} className="relative lg:hidden">
+            <button
+              type="button"
+              aria-expanded={projectsOpen}
+              aria-controls="nav-projects-mobile"
+              onClick={() => setProjectsOpen((v) => !v)}
+              className="flex items-center gap-1.5 rounded-lg border border-line px-3 py-2 text-[13px] text-snow transition hover:border-mist"
+            >
+              Projects
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+                className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                  projectsOpen ? "rotate-180" : ""
+                }`}
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            {projectsOpen && (
+              <div
+                id="nav-projects-mobile"
+                className="absolute right-0 top-full mt-3 w-[300px] rounded-xl border border-line bg-panel p-2 shadow-2xl"
+              >
+                {caseStudies.map((cs) => (
+                  <a
+                    key={cs.id}
+                    href={`#work-${cs.id}`}
+                    onClick={() => setProjectsOpen(false)}
+                    className="block rounded-lg px-3 py-2.5 transition hover:bg-white/5"
+                  >
+                    <span className="block text-sm font-semibold text-snow">
+                      {cs.shortName ?? cs.name}
+                    </span>
+                    <span className="mt-0.5 block text-xs leading-snug text-mist">
+                      {cs.tagline}
+                    </span>
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+
           <a
             href="https://github.com/FamineDT246"
             target="_blank"
