@@ -50,11 +50,11 @@ export const caseStudies: CaseStudy[] = [
       "Five role-based products in one: owner, HR, department head, supervisor and employee views",
     ],
     outcome:
-      "Live at bimhrsolutions.com and in active use for company payroll runs. The product now brands itself CoreIsle as it scales toward the wider market.",
+      "Built, deployed and live at bimhrsolutions.com, where it is in active testing as I prepare for the first client onboardings. The product now brands itself CoreIsle as it scales toward the wider market.",
     stack: ["Next.js", "React", "TypeScript", "Supabase", "Postgres RLS", "Zod", "Playwright"],
     role: ["Product", "Design", "Engineering"],
     year: "2026",
-    status: "In production",
+    status: "Deployed, in testing",
     liveUrl: "https://bimhrsolutions.com",
     liveLabel: "bimhrsolutions.com",
     primary: {
@@ -86,7 +86,7 @@ export const caseStudies: CaseStudy[] = [
       "Guest checkout with an OpenStreetMap delivery pin, live order timelines, TOTP multi-factor login, and plain-language UI throughout",
     ],
     outcome:
-      "Shipped under a BBD 3,500 fixed-price contract and now live on Vercel, running the workshop's real sales, rentals, quotes and daily bookkeeping.",
+      "Shipped under a fixed-price contract and now live on Vercel, running the workshop's real sales, rentals, quotes and daily bookkeeping.",
     stack: ["Next.js", "TypeScript", "Prisma", "Supabase", "Tailwind", "TanStack Query", "Vitest"],
     role: ["Product", "Design", "Engineering", "Deployment"],
     year: "2026",
@@ -236,7 +236,7 @@ export const caseStudies: CaseStudy[] = [
 
 export const stats = [
   { value: "05", label: "products designed, built and shipped" },
-  { value: "04", label: "real businesses running on them daily" },
+  { value: "03", label: "businesses running on them daily" },
   { value: "BBD", label: "every price, invoice and report in local currency" },
 ];
 

@@ -38,7 +38,7 @@ function Hero() {
             and ship production products for Caribbean businesses: a payroll
             platform that knows Barbados tax law, a nursery&apos;s storefront, a
             boutique&apos;s back office, a contractor&apos;s operations hub. Not
-            prototypes. Products with paying customers.
+            prototypes. Real products, real clients.
           </p>
         </Reveal>
 
@@ -119,7 +119,7 @@ function Vision() {
             <p className="border-l-2 border-gold pl-6 font-medium text-snow">
               I&apos;m now formalising that mission into a SaaS company of my
               own, registered in Barbados, shipping affordable tools for
-              Caribbean small businesses. The four products below are the proof
+              Caribbean small businesses. The products below are the proof
               of concept.
             </p>
           </div>
@@ -307,12 +307,12 @@ function WorkIntro() {
         <Reveal>
           <p className="eyebrow text-gold">Selected work</p>
           <h2 className="display mt-5 max-w-3xl text-4xl font-bold text-snow sm:text-5xl">
-            Four products. Real customers. Live right now.
+            Five products. Real clients.
           </h2>
           <p className="mt-6 max-w-2xl text-lg text-mist">
-            No mockups, no abandoned demos. Every product below is in
-            production, and the screenshots are taken straight from the running
-            software.
+            No mockups. Four platforms serve businesses right now, and the
+            fifth was a two-day rapid build. Every screenshot is taken straight
+            from the running software.
           </p>
         </Reveal>
       </div>

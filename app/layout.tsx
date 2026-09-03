@@ -43,11 +43,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://ceejayc.vercel.app"),
   title: "Ceejay Cumberbatch | Software for Caribbean businesses",
   description:
-    "Founder-led design and engineering from Barbados. Five production products: an HR and payroll platform, a plant nursery and welding commerce system, a fashion boutique storefront, a contractor services hub, and a rapid-build scheduler.",
+    "Founder-led design and engineering from Barbados. Five products built and shipped: an HR and payroll platform, a plant nursery and welding commerce system, a fashion boutique storefront, a contractor services hub, and a rapid-build scheduler.",
   openGraph: {
     title: "Ceejay Cumberbatch | Software for Caribbean businesses",
     description:
-      "Founder-led design and engineering from Barbados. Five production products, serving real businesses every day.",
+      "Founder-led design and engineering from Barbados. Five products built and shipped, serving real businesses.",
     url: "https://ceejayc.vercel.app",
     siteName: "Ceejay Cumberbatch",
     locale: "en_BB",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ceejay Cumberbatch | Software for Caribbean businesses",
     description:
-      "Founder-led design and engineering from Barbados. Five production products, serving real businesses every day.",
+      "Founder-led design and engineering from Barbados. Five products built and shipped, serving real businesses.",
   },
 };
 
