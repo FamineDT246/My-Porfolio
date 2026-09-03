@@ -1,26 +1,211 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-grotesk), var(--font-inter), ui-sans-serif, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "Cascadia Mono", monospace;
+
+  --color-ink: #06080b;
+  --color-panel: #0b0e14;
+  --color-panel-2: #10141c;
+  --color-line: rgba(233, 237, 241, 0.08);
+  --color-snow: #e9edf1;
+  --color-mist: #93a1ad;
+  --color-gold: #f2b33d;
+  --color-gold-deep: #c8891a;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-ink);
+  color: var(--color-snow);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* decorative absolute glows extend past the viewport on purpose */
+  overflow-x: clip;
+}
+
+::selection {
+  background: rgba(242, 179, 61, 0.85);
+  color: #06080b;
+}
+
+/* ---------- shared primitives ---------- */
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.display {
+  font-family: var(--font-display);
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+}
+
+/* Faint blueprint grid used on dark sections */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(233, 237, 241, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(233, 237, 241, 0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 20%, black 30%, transparent 75%);
+}
+
+/* ---------- scroll reveal ---------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---------- case study "worlds" ---------- */
+/* Each world scopes its own palette; components only ever use these vars. */
+
+.world {
+  --w-bg: #06080b;
+  --w-fg: #e9edf1;
+  --w-muted: #93a1ad;
+  --w-accent: #f2b33d;
+  --w-accent-ink: #06080b;
+  --w-line: rgba(233, 237, 241, 0.09);
+  --w-chip: rgba(233, 237, 241, 0.06);
+  background: var(--w-bg);
+  color: var(--w-fg);
+  overflow-x: clip;
+}
+
+.world-bimhr {
+  --w-bg: #081130;
+  --w-fg: #f4f6fb;
+  --w-muted: #9fb0d8;
+  --w-accent: #ffc72c;
+  --w-accent-ink: #081130;
+  --w-line: rgba(255, 199, 44, 0.18);
+  --w-chip: rgba(255, 255, 255, 0.06);
+}
+
+.world-tht {
+  --w-bg: #faf8f5;
+  --w-fg: #241a33;
+  --w-muted: #6d6478;
+  --w-accent: #7c3aed;
+  --w-accent-ink: #ffffff;
+  --w-line: rgba(36, 26, 51, 0.1);
+  --w-chip: rgba(124, 58, 237, 0.08);
+}
+
+.world-kerri {
+  --w-bg: #17161a;
+  --w-fg: #f3efe8;
+  --w-muted: #a39d92;
+  --w-accent: #daba7a;
+  --w-accent-ink: #17161a;
+  --w-line: rgba(218, 186, 122, 0.18);
+  --w-chip: rgba(218, 186, 122, 0.08);
+}
+
+.world-waldrons {
+  --w-bg: #faf7ee;
+  --w-fg: #1c2a1a;
+  --w-muted: #5f6b58;
+  --w-accent: #2f5d2a;
+  --w-accent-ink: #ffffff;
+  --w-line: rgba(28, 42, 26, 0.12);
+  --w-chip: rgba(47, 93, 42, 0.08);
+}
+
+/* ---------- browser + phone frames ---------- */
+
+.browser-frame {
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #101318;
+  box-shadow:
+    0 40px 90px -30px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.world .browser-frame {
+  border-color: color-mix(in srgb, var(--w-fg) 16%, transparent);
+}
+
+.browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.045);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.browser-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.browser-url {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  padding: 3px 12px;
+}
+
+.phone-frame {
+  border-radius: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #101318;
+  padding: 9px;
+  box-shadow:
+    0 40px 80px -28px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+
+.phone-screen {
+  border-radius: 26px;
+  overflow: hidden;
+}
+
+/* subtle glow behind hero devices */
+.device-glow {
+  position: absolute;
+  inset: -8% -12%;
+  filter: blur(70px);
+  opacity: 0.35;
+  background:
+    radial-gradient(40% 45% at 30% 40%, rgba(242, 179, 61, 0.5), transparent 70%),
+    radial-gradient(45% 50% at 72% 65%, rgba(56, 89, 199, 0.45), transparent 70%),
+    radial-gradient(35% 40% at 60% 20%, rgba(124, 58, 237, 0.35), transparent 70%);
+  pointer-events: none;
 }
