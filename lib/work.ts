@@ -21,6 +21,7 @@ export type CaseStudy = {
   status: string;
   liveUrl?: string;
   liveLabel?: string;
+  frameLabel?: string;
   codeUrl?: string;
   codeLabel?: string;
   primary: Shot;
@@ -57,6 +58,7 @@ export const caseStudies: CaseStudy[] = [
     status: "Deployed, in testing",
     liveUrl: "https://bimhrsolutions.com",
     liveLabel: "bimhrsolutions.com",
+    frameLabel: "bimhrsolutions.com",
     primary: {
       src: "/work/bimhr/dashboard.webp",
       alt: "BimHR owner dashboard showing 48 active employees, monthly payroll cost of $189,570.70 BBD, pending approvals and attendance rate",
@@ -73,12 +75,12 @@ export const caseStudies: CaseStudy[] = [
   {
     id: "waldrons",
     index: "02",
-    name: "Waldron's Creations",
+    name: "Nursery & Workshop Platform",
     tagline: "A craftsman's nursery and welding workshop, digitised",
     world: "world-waldrons",
     eyebrow: "Commerce and operations platform",
     problem:
-      "Waldron's Creations runs two trades from one yard in Christ Church: plants for sale and rent across all 11 parishes, plus welded fabrication jobs quoted per piece. Every order, rental and invoice lived in a notebook. The owner is 55 and non-technical; whatever I built had to be usable from a phone in a greenhouse with soil on his hands.",
+      "A family workshop in Christ Church runs two trades from one yard: plants for sale and rent across all 11 parishes, plus welded fabrication jobs quoted per piece. Every order, rental and invoice lived in a notebook. The owner is 55 and non-technical; whatever I built had to be usable from a phone in a greenhouse with soil on his hands.",
     build: [
       "Storefront selling plants and pots with weekly rentals, deposits and delivery-versus-pickup built into one cart",
       "Quote workflow for welding and landscaping jobs that converts into branded invoices once accepted",
@@ -92,22 +94,22 @@ export const caseStudies: CaseStudy[] = [
     year: "2026",
     status: "In production",
     liveUrl: "https://waldrons-creations.vercel.app",
-    liveLabel: "waldrons-creations.vercel.app",
+    frameLabel: "nursery & workshop · live",
     primary: {
-      src: "/work/waldrons/shop.webp",
-      alt: "Waldron's Creations shop grid showing plants like Bird of Paradise and Fiddle Leaf Fig with BBD prices and rental rates",
+      src: "/work/nursery/shop.webp",
+      alt: "Nursery shop grid showing plants like Bird of Paradise and Fiddle Leaf Fig with BBD prices and rental rates",
       width: D,
       height: DH,
     },
     secondary: {
-      src: "/work/waldrons/home.webp",
-      alt: "Waldron's Creations landing page for the family-run nursery in Barbados",
+      src: "/work/nursery/home.webp",
+      alt: "Nursery landing page for the family-run nursery in Barbados",
       width: D,
       height: DH,
     },
     phone: {
-      src: "/work/waldrons/home-mobile.webp",
-      alt: "Mobile view of Waldron's Creations",
+      src: "/work/nursery/home-mobile.webp",
+      alt: "Mobile view of the nursery platform",
       width: M,
       height: MH,
     },
@@ -115,12 +117,12 @@ export const caseStudies: CaseStudy[] = [
   {
     id: "kerri",
     index: "03",
-    name: "Kerri's Closet",
+    name: "Boutique Storefront & Back Office",
     tagline: "Editorial e-commerce, handmade in Barbados",
     world: "world-kerri",
     eyebrow: "E-commerce with a full back office",
     problem:
-      "Kerri cuts and sews custom fashion by hand in Barbados, but her online presence could not take a single order: no cart, no order tracking, no way to manage fittings, custom requests or reviews without a wall of WhatsApp messages.",
+      "The owner cuts and sews custom fashion by hand in Barbados, but her online presence could not take a single order: no cart, no order tracking, no way to manage fittings, custom requests or reviews without a wall of WhatsApp messages.",
     build: [
       "An editorial storefront with category filtering, wishlists, guest checkout, order tracking by reference number, and moderated reviews",
       "A booking system for fittings and consultations with conflict-checked time slots",
@@ -134,22 +136,22 @@ export const caseStudies: CaseStudy[] = [
     year: "2026",
     status: "In production",
     liveUrl: "https://kerris-closet.vercel.app",
-    liveLabel: "kerris-closet.vercel.app",
+    frameLabel: "boutique storefront · live",
     primary: {
       src: "/work/kerri/home.webp",
-      alt: "Kerri's Closet editorial landing page: Made With You In Mind, handmade fashion photography from Barbados",
+      alt: "Boutique editorial landing page: Made With You In Mind, handmade fashion photography from Barbados",
       width: D,
       height: DH,
     },
     secondary: {
       src: "/work/kerri/admin-analytics.webp",
-      alt: "Kerri's Closet admin analytics showing BBD revenue, orders, custom request funnel and bookings",
+      alt: "Boutique admin analytics showing BBD revenue, orders, custom request funnel and bookings",
       width: D,
       height: DH,
     },
     phone: {
       src: "/work/kerri/home-mobile.webp",
-      alt: "Mobile view of Kerri's Closet",
+      alt: "Mobile view of the boutique platform",
       width: M,
       height: MH,
     },
@@ -157,12 +159,12 @@ export const caseStudies: CaseStudy[] = [
   {
     id: "tht",
     index: "04",
-    name: "The Helping Tree",
+    name: "Contractor Services Hub",
     tagline: "Fresha, Shopify and Calendly, rebuilt as one Bajan hub",
     world: "world-tht",
     eyebrow: "Services and retail platform",
     problem:
-      "Candice runs a contractor crew by day (tiling, painting, cleaning, catering) and sells small-batch Bajan goods on the side, all coordinated through scattered calls and messages. Off-the-shelf tools could each solve one slice: Fresha for bookings, Shopify for the store, Calendly for the crew. She needed one place where customers could book, buy and follow along.",
+      "The owner runs a contractor crew by day (tiling, painting, cleaning, catering) and sells small-batch Bajan goods on the side, all coordinated through scattered calls and messages. Off-the-shelf tools could each solve one slice: Fresha for bookings, Shopify for the store, Calendly for the crew. She needed one place where customers could book, buy and follow along.",
     build: [
       "Public site for browsing services and the product shop, with a booking flow that feeds straight into an operations dashboard",
       "Admin, team and client views: bookings, quotes, orders, scheduling, broadcasts, reviews and invoices with payment proof",
@@ -176,22 +178,22 @@ export const caseStudies: CaseStudy[] = [
     year: "2026",
     status: "In production",
     liveUrl: "https://the-perfect-duo.vercel.app",
-    liveLabel: "the-perfect-duo.vercel.app",
+    frameLabel: "contractor hub · live",
     primary: {
       src: "/work/tht/home.webp",
-      alt: "The Helping Tree landing page in royal purple: Barbados contractor services and locally made products",
+      alt: "Contractor hub landing page in royal purple: Barbados contractor services and locally made products",
       width: D,
       height: DH,
     },
     secondary: {
       src: "/work/tht/services.webp",
-      alt: "The Helping Tree services catalogue page",
+      alt: "Contractor hub services catalogue page",
       width: D,
       height: DH,
     },
     phone: {
       src: "/work/tht/home-mobile.webp",
-      alt: "Mobile view of The Helping Tree",
+      alt: "Mobile view of the contractor hub",
       width: M,
       height: MH,
     },
@@ -204,7 +206,7 @@ export const caseStudies: CaseStudy[] = [
     world: "world-raschedule",
     eyebrow: "Rapid internal tool",
     problem:
-      "Robot Adventure runs kids' robotics camps and workshops all over Barbados, and assigning twenty instructors to seventeen events ran on spreadsheets and PDFs. Double bookings, unavailable dates and unfilled slots were found out on the morning, not the week before.",
+      "A kids' robotics company runs camps and workshops all over Barbados, and assigning twenty instructors to seventeen events ran on spreadsheets and PDFs. Double bookings, unavailable dates and unfilled slots were found out on the morning, not the week before.",
     build: [
       "Drag-and-drop scheduling: pull instructors from the roster rail onto event cards across a weekly calendar, with tap-to-assign on mobile",
       "Automatic conflict detection for double bookings, unavailable dates and fatigue streaks, flagged before they reach the venue",
@@ -218,7 +220,7 @@ export const caseStudies: CaseStudy[] = [
     year: "2026",
     status: "Rapid build",
     codeUrl: "https://github.com/FamineDT246/RASchedule",
-    codeLabel: "github.com/FamineDT246/RASchedule",
+    codeLabel: "View the code on GitHub",
     primary: {
       src: "/work/raschedule/scheduler.webp",
       alt: "RASyncbot scheduler: instructor roster rail beside a weekly calendar of robotics camps with 28 of 30 slots filled",

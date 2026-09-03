@@ -246,7 +246,7 @@ function CaseStudy({ cs }: { cs: CaseStudy }) {
                     color: "var(--w-accent-ink)",
                   }}
                 >
-                  Visit {cs.liveLabel}
+                  {cs.liveLabel ? `Visit ${cs.liveLabel}` : "Visit the live site"}
                   <span aria-hidden="true">↗</span>
                 </a>
               ) : (
@@ -260,7 +260,7 @@ function CaseStudy({ cs }: { cs: CaseStudy }) {
                     color: "var(--w-accent-ink)",
                   }}
                 >
-                  View the code: {cs.codeLabel}
+                  {cs.codeLabel ?? "View the code"}
                   <span aria-hidden="true">↗</span>
                 </a>
               )}
@@ -276,7 +276,7 @@ function CaseStudy({ cs }: { cs: CaseStudy }) {
               />
               <BrowserFrame
                 shot={cs.primary}
-                url={cs.liveUrl ? cs.liveUrl.replace("https://", "") : `${cs.name.toLowerCase()} · internal build`}
+                url={cs.frameLabel ?? (cs.liveUrl ? cs.liveUrl.replace("https://", "") : `${cs.name.toLowerCase()} · internal build`)}
                 priority={cs.index === "01"}
               />
               {cs.phone && (
@@ -288,7 +288,7 @@ function CaseStudy({ cs }: { cs: CaseStudy }) {
                 <div className="mt-8 lg:mt-10 lg:pr-16">
                   <BrowserFrame
                     shot={cs.secondary}
-                    url={cs.liveUrl ? cs.liveUrl.replace("https://", "") : `${cs.name.toLowerCase()} · internal build`}
+                    url={cs.frameLabel ?? (cs.liveUrl ? cs.liveUrl.replace("https://", "") : `${cs.name.toLowerCase()} · internal build`)}
                   />
                 </div>
               )}
@@ -354,7 +354,7 @@ function Accessibility() {
               Most sites treat accessibility as a compliance checkbox, audited
               after launch and forgotten by the next sprint. I built my own
               accessibility component instead, and it ships inside the products:
-              Kerri&apos;s Closet, Waldron&apos;s Creations and BimHR all run it
+              the boutique storefront, the nursery platform and BimHR all run it
               today. It becomes a cornerstone of the component library I&apos;m
               building for my company.
             </p>
