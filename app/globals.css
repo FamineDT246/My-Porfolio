@@ -226,6 +226,28 @@ body {
    on the root element does not create a new containing block, so fixed
    elements (nav, FAB) stay viewport-anchored. */
 
+/* slim themed scrollbar for the a11y panel */
+.a11y-panel {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(242, 179, 61, 0.45) transparent;
+}
+.a11y-panel::-webkit-scrollbar {
+  width: 8px;
+}
+.a11y-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+.a11y-panel::-webkit-scrollbar-thumb {
+  background: rgba(242, 179, 61, 0.35);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.a11y-panel::-webkit-scrollbar-thumb:hover {
+  background: rgba(242, 179, 61, 0.6);
+  background-clip: padding-box;
+}
+
 html { font-size: 16px; }
 [data-font-size="sm"] { font-size: 14px; }
 [data-font-size="lg"] { font-size: 18px; }

@@ -19,7 +19,7 @@ export default function Nav() {
         <div className="hidden items-center gap-5 text-[13px] text-mist lg:flex">
           {caseStudies.map((cs) => (
             <a key={cs.id} href={`#work-${cs.id}`} className="whitespace-nowrap transition hover:text-snow">
-              {cs.name}
+              {cs.shortName ?? cs.name}
             </a>
           ))}
           <a href="#vision" className="transition hover:text-snow">

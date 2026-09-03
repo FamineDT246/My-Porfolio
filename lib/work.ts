@@ -9,6 +9,7 @@ export type CaseStudy = {
   id: string;
   index: string;
   name: string;
+  shortName?: string;
   tagline: string;
   world: string;
   eyebrow: string;
@@ -76,6 +77,7 @@ export const caseStudies: CaseStudy[] = [
     id: "waldrons",
     index: "02",
     name: "Nursery & Workshop Platform",
+    shortName: "Nursery",
     tagline: "A craftsman's nursery and welding workshop, digitised",
     world: "world-waldrons",
     eyebrow: "Commerce and operations platform",
@@ -118,6 +120,7 @@ export const caseStudies: CaseStudy[] = [
     id: "kerri",
     index: "03",
     name: "Boutique Storefront & Back Office",
+    shortName: "Boutique",
     tagline: "Editorial e-commerce, handmade in Barbados",
     world: "world-kerri",
     eyebrow: "E-commerce with a full back office",
@@ -160,6 +163,7 @@ export const caseStudies: CaseStudy[] = [
     id: "tht",
     index: "04",
     name: "Contractor Services Hub",
+    shortName: "Contractor Hub",
     tagline: "Fresha, Shopify and Calendly, rebuilt as one Bajan hub",
     world: "world-tht",
     eyebrow: "Services and retail platform",
