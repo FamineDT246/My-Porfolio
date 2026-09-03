@@ -34,11 +34,8 @@ function Hero() {
 
         <Reveal delay={180}>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-mist">
-            I&apos;m Ceejay Cumberbatch, a full-stack engineer and founder. I design
-            and ship production products for Caribbean businesses: a payroll
-            platform that knows Barbados tax law, a nursery&apos;s storefront, a
-            boutique&apos;s back office, a contractor&apos;s operations hub. Not
-            prototypes. Real products, real clients.
+            I&apos;m Ceejay Cumberbatch, a full-stack engineer and founder. I
+            design and ship production products for Caribbean businesses.
           </p>
         </Reveal>
 
