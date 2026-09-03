@@ -42,6 +42,13 @@ function Hero() {
           </p>
         </Reveal>
 
+        <Reveal delay={120}>
+          <p className="mt-6 max-w-2xl border-l-2 border-gold pl-6 text-lg leading-relaxed text-snow">
+            You bring the idea, the headache, the spreadsheet. I turn it into an
+            application your team actually uses.
+          </p>
+        </Reveal>
+
         <Reveal delay={260}>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
@@ -228,19 +235,35 @@ function CaseStudy({ cs }: { cs: CaseStudy }) {
                 </div>
               </dl>
 
-              <a
-                href={cs.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-10 inline-flex items-center gap-2 rounded-xl px-6 py-3.5 font-semibold transition hover:opacity-90"
-                style={{
-                  background: "var(--w-accent)",
-                  color: "var(--w-accent-ink)",
-                }}
-              >
-                Visit {cs.liveLabel}
-                <span aria-hidden="true">↗</span>
-              </a>
+              {cs.liveUrl ? (
+                <a
+                  href={cs.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-10 inline-flex items-center gap-2 rounded-xl px-6 py-3.5 font-semibold transition hover:opacity-90"
+                  style={{
+                    background: "var(--w-accent)",
+                    color: "var(--w-accent-ink)",
+                  }}
+                >
+                  Visit {cs.liveLabel}
+                  <span aria-hidden="true">↗</span>
+                </a>
+              ) : (
+                <a
+                  href={cs.codeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-10 inline-flex items-center gap-2 rounded-xl px-6 py-3.5 font-semibold transition hover:opacity-90"
+                  style={{
+                    background: "var(--w-accent)",
+                    color: "var(--w-accent-ink)",
+                  }}
+                >
+                  View the code: {cs.codeLabel}
+                  <span aria-hidden="true">↗</span>
+                </a>
+              )}
             </div>
           </Reveal>
 
@@ -251,7 +274,11 @@ function CaseStudy({ cs }: { cs: CaseStudy }) {
                 className="absolute -inset-6 -z-10 rounded-3xl opacity-25 blur-2xl"
                 style={{ background: "var(--w-accent)" }}
               />
-              <BrowserFrame shot={cs.primary} url={cs.liveUrl.replace("https://", "")} priority={cs.index === "01"} />
+              <BrowserFrame
+                shot={cs.primary}
+                url={cs.liveUrl ? cs.liveUrl.replace("https://", "") : `${cs.name.toLowerCase()} · internal build`}
+                priority={cs.index === "01"}
+              />
               {cs.phone && (
                 <div className="absolute -bottom-12 hidden w-32 rotate-3 sm:block lg:-right-8 lg:w-40">
                   <PhoneFrame shot={cs.phone} />
@@ -259,7 +286,10 @@ function CaseStudy({ cs }: { cs: CaseStudy }) {
               )}
               {cs.secondary && (
                 <div className="mt-8 lg:mt-10 lg:pr-16">
-                  <BrowserFrame shot={cs.secondary} url={cs.liveUrl.replace("https://", "")} />
+                  <BrowserFrame
+                    shot={cs.secondary}
+                    url={cs.liveUrl ? cs.liveUrl.replace("https://", "") : `${cs.name.toLowerCase()} · internal build`}
+                  />
                 </div>
               )}
             </div>
@@ -290,6 +320,72 @@ function WorkIntro() {
   );
 }
 
+function Accessibility() {
+  const features = [
+    { title: "Text size, four steps", body: "The whole layout scales, not just paragraphs." },
+    { title: "Hyperlegible fonts", body: "Atkinson Hyperlegible, Lexend and OpenDyslexic, one click each." },
+    { title: "High-contrast theme", body: "Pure black on white with borders that hold their ground." },
+    { title: "Colourblind filters", body: "Real feColorMatrix simulations, not hue-rotate guesses." },
+    { title: "Reading line guide", body: "A rule that follows the cursor through dense pages." },
+    { title: "Read the page aloud", body: "Browser-native speech, no third-party tracker." },
+    { title: "Highlight every link", body: "Underlines and offsets on every link, always." },
+    { title: "Alt + A, anywhere", body: "The whole panel opens from the keyboard." },
+  ];
+  return (
+    <section id="accessibility" className="relative overflow-hidden border-t border-line">
+      <div
+        aria-hidden="true"
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(50% 55% at 85% 10%, rgba(242,179,61,0.09), transparent 70%)",
+        }}
+      />
+      <div className="relative mx-auto grid max-w-6xl gap-12 px-5 py-24 sm:px-8 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
+        <Reveal>
+          <div>
+            <p className="eyebrow text-gold">What actually separates this work</p>
+            <h2 className="display mt-5 text-4xl font-bold text-snow sm:text-5xl">
+              Accessibility ships
+              <br />
+              in the box.
+            </h2>
+            <p className="mt-7 text-lg leading-relaxed text-mist">
+              Most sites treat accessibility as a compliance checkbox, audited
+              after launch and forgotten by the next sprint. I built my own
+              accessibility component instead, and it ships inside the products:
+              Kerri&apos;s Closet, Waldron&apos;s Creations and BimHR all run it
+              today. It becomes a cornerstone of the component library I&apos;m
+              building for my company.
+            </p>
+            <p className="mt-5 text-lg leading-relaxed text-mist">
+              And it is not a screenshot on this page.{" "}
+              <span className="font-semibold text-snow">
+                It is running here, right now.
+              </span>{" "}
+              Press <kbd className="rounded border border-line px-1.5 py-0.5 font-mono text-sm">Alt</kbd>{" "}
+              +{" "}
+              <kbd className="rounded border border-line px-1.5 py-0.5 font-mono text-sm">A</kbd>,
+              or tap the round button in the corner, and reshape this site to
+              fit you.
+            </p>
+          </div>
+        </Reveal>
+        <div className="grid content-start gap-4 sm:grid-cols-2">
+          {features.map((f, i) => (
+            <Reveal key={f.title} delay={i * 70}>
+              <div className="h-full rounded-2xl border border-line bg-panel p-5">
+                <h3 className="text-sm font-semibold text-snow">{f.title}</h3>
+                <p className="mt-1.5 text-[13px] leading-snug text-mist">{f.body}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Capabilities() {
   return (
     <section id="capabilities" className="border-t border-line">
@@ -302,7 +398,7 @@ function Capabilities() {
             under one roof.
           </h2>
         </Reveal>
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {capabilities.map((cap, i) => (
             <Reveal key={cap.group} delay={i * 110}>
               <div className="h-full rounded-2xl border border-line bg-panel p-7">
@@ -402,6 +498,7 @@ export default function Page() {
         {caseStudies.map((cs) => (
           <CaseStudy key={cs.id} cs={cs} />
         ))}
+        <Accessibility />
         <Capabilities />
         <Contact />
       </main>

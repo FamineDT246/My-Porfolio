@@ -19,8 +19,10 @@ export type CaseStudy = {
   role: string[];
   year: string;
   status: string;
-  liveUrl: string;
-  liveLabel: string;
+  liveUrl?: string;
+  liveLabel?: string;
+  codeUrl?: string;
+  codeLabel?: string;
   primary: Shot;
   secondary?: Shot;
   phone?: Shot;
@@ -72,18 +74,19 @@ export const caseStudies: CaseStudy[] = [
     id: "waldrons",
     index: "02",
     name: "Waldron's Creations",
-    tagline: "A 55-year-old nurseryman's digital shopfront",
+    tagline: "A craftsman's nursery and welding workshop, digitised",
     world: "world-waldrons",
     eyebrow: "Commerce and operations platform",
     problem:
-      "Waldron's Creations sells and rents plants across all 11 parishes of Barbados, and every order, rental and invoice lived in a notebook. The owner is 55 and non-technical; whatever I built had to be usable from a phone in a greenhouse with soil on his hands.",
+      "Waldron's Creations runs two trades from one yard in Christ Church: plants for sale and rent across all 11 parishes, plus welded fabrication jobs quoted per piece. Every order, rental and invoice lived in a notebook. The owner is 55 and non-technical; whatever I built had to be usable from a phone in a greenhouse with soil on his hands.",
     build: [
       "Storefront selling plants and pots with weekly rentals, deposits and delivery-versus-pickup built into one cart",
-      "A mobile-first admin: in-store POS, order tracking with receipt uploads, maturation batch tracking, quotes that convert to branded invoices, and a daily revenue chart with CSV export",
+      "Quote workflow for welding and landscaping jobs that converts into branded invoices once accepted",
+      "A mobile-first admin: in-store POS, order tracking with receipt uploads, maturation batch tracking, and a daily revenue chart with CSV export",
       "Guest checkout with an OpenStreetMap delivery pin, live order timelines, TOTP multi-factor login, and plain-language UI throughout",
     ],
     outcome:
-      "Shipped under a BBD 3,500 fixed-price contract and now live on Vercel, running the nursery's real sales, rentals and daily bookkeeping.",
+      "Shipped under a BBD 3,500 fixed-price contract and now live on Vercel, running the workshop's real sales, rentals, quotes and daily bookkeeping.",
     stack: ["Next.js", "TypeScript", "Prisma", "Supabase", "Tailwind", "TanStack Query", "Vitest"],
     role: ["Product", "Design", "Engineering", "Deployment"],
     year: "2026",
@@ -155,11 +158,11 @@ export const caseStudies: CaseStudy[] = [
     id: "tht",
     index: "04",
     name: "The Helping Tree",
-    tagline: "One hub for a contractor crew and a Bajan shop",
+    tagline: "Fresha, Shopify and Calendly, rebuilt as one Bajan hub",
     world: "world-tht",
     eyebrow: "Services and retail platform",
     problem:
-      "Candice runs a contractor crew by day (tiling, painting, cleaning, catering) and sells small-batch Bajan goods on the side, all coordinated through scattered calls and messages. She needed one place where customers could book, buy and follow along.",
+      "Candice runs a contractor crew by day (tiling, painting, cleaning, catering) and sells small-batch Bajan goods on the side, all coordinated through scattered calls and messages. Off-the-shelf tools could each solve one slice: Fresha for bookings, Shopify for the store, Calendly for the crew. She needed one place where customers could book, buy and follow along.",
     build: [
       "Public site for browsing services and the product shop, with a booking flow that feeds straight into an operations dashboard",
       "Admin, team and client views: bookings, quotes, orders, scheduling, broadcasts, reviews and invoices with payment proof",
@@ -167,7 +170,7 @@ export const caseStudies: CaseStudy[] = [
       "White-label branding: the business name, logo and colours are editable from settings and propagate across the whole product",
     ],
     outcome:
-      "Live and in daily use by the business, with a full operations dashboard replacing the message-scramble.",
+      "Live and in daily use by the business: what would have been three separate subscriptions stitched together by hand is one operations dashboard.",
     stack: ["Next.js", "TypeScript", "Supabase", "Tailwind", "shadcn/ui", "Web Push", "PWA"],
     role: ["Product", "Design", "Engineering"],
     year: "2026",
@@ -193,11 +196,47 @@ export const caseStudies: CaseStudy[] = [
       height: MH,
     },
   },
+  {
+    id: "raschedule",
+    index: "05",
+    name: "RASyncbot",
+    tagline: "A crew scheduling system built in two days",
+    world: "world-raschedule",
+    eyebrow: "Rapid internal tool",
+    problem:
+      "Robot Adventure runs kids' robotics camps and workshops all over Barbados, and assigning twenty instructors to seventeen events ran on spreadsheets and PDFs. Double bookings, unavailable dates and unfilled slots were found out on the morning, not the week before.",
+    build: [
+      "Drag-and-drop scheduling: pull instructors from the roster rail onto event cards across a weekly calendar, with tap-to-assign on mobile",
+      "Automatic conflict detection for double bookings, unavailable dates and fatigue streaks, flagged before they reach the venue",
+      "Tokenised invite links so each instructor sees only their own schedule, plus per-day shirt colours, event drawers and a print-friendly weekly view",
+      "Seeded with the real operation: 20 staff profiles, 17 events, role-based admin and instructor views",
+    ],
+    outcome:
+      "Built free over two days to close the gap while working with the business. In the end it was not taken on, so it now lives as an open artefact: proof of how far a clear idea can get in a weekend, and an honest to-do list.",
+    stack: ["Next.js", "TypeScript", "dnd-kit", "Prisma", "Turso", "TanStack Query"],
+    role: ["Product", "Design", "Engineering"],
+    year: "2026",
+    status: "Rapid build",
+    codeUrl: "https://github.com/FamineDT246/RASchedule",
+    codeLabel: "github.com/FamineDT246/RASchedule",
+    primary: {
+      src: "/work/raschedule/scheduler.webp",
+      alt: "RASyncbot scheduler: instructor roster rail beside a weekly calendar of robotics camps with 28 of 30 slots filled",
+      width: D,
+      height: DH,
+    },
+    secondary: {
+      src: "/work/raschedule/events.webp",
+      alt: "RASyncbot events list showing seventeen Barbados robotics camps and workshops with draft and confirmed statuses",
+      width: D,
+      height: DH,
+    },
+  },
 ];
 
 export const stats = [
-  { value: "04", label: "products designed, built and shipped" },
-  { value: "03", label: "real businesses running on them daily" },
+  { value: "05", label: "products designed, built and shipped" },
+  { value: "04", label: "real businesses running on them daily" },
   { value: "BBD", label: "every price, invoice and report in local currency" },
 ];
 
@@ -213,5 +252,9 @@ export const capabilities = [
   {
     group: "Quality and operations",
     items: ["Playwright E2E", "Vitest", "GitHub Actions CI", "Vercel", "Sentry", "Rate limiting"],
+  },
+  {
+    group: "Accessibility engineering",
+    items: ["WCAG AA", "OpenDyslexic and hyperlegible fonts", "Colourblind filters", "Screen-reader live regions", "Keyboard-first flows", "Read-aloud"],
   },
 ];

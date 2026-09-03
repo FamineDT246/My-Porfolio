@@ -140,6 +140,16 @@ body {
   --w-chip: rgba(47, 93, 42, 0.08);
 }
 
+.world-raschedule {
+  --w-bg: #081410;
+  --w-fg: #e8f5ef;
+  --w-muted: #8fb3a5;
+  --w-accent: #34d399;
+  --w-accent-ink: #06120d;
+  --w-line: rgba(52, 211, 153, 0.2);
+  --w-chip: rgba(52, 211, 153, 0.08);
+}
+
 /* ---------- browser + phone frames ---------- */
 
 .browser-frame {
@@ -208,4 +218,89 @@ body {
     radial-gradient(45% 50% at 72% 65%, rgba(56, 89, 199, 0.45), transparent 70%),
     radial-gradient(35% 40% at 60% 20%, rgba(124, 58, 237, 0.35), transparent 70%);
   pointer-events: none;
+}
+
+/* ---------- accessibility widget preferences ----------
+   The widget sets data-* attributes on <html>; everything below is pure CSS.
+   Colourblind filters target html itself: per the CSS filter spec, a filter
+   on the root element does not create a new containing block, so fixed
+   elements (nav, FAB) stay viewport-anchored. */
+
+html { font-size: 16px; }
+[data-font-size="sm"] { font-size: 14px; }
+[data-font-size="lg"] { font-size: 18px; }
+[data-font-size="xl"] { font-size: 20px; }
+
+[data-font-family="atkinson"],
+[data-font-family="atkinson"] body {
+  font-family: var(--font-atkinson), ui-sans-serif, system-ui, sans-serif !important;
+}
+[data-font-family="lexend"],
+[data-font-family="lexend"] body {
+  font-family: var(--font-lexend), ui-sans-serif, system-ui, sans-serif !important;
+}
+[data-font-family="dyslexic"],
+[data-font-family="dyslexic"] body {
+  font-family: "OpenDyslexic", var(--font-atkinson), ui-sans-serif, sans-serif !important;
+}
+[data-font-family="system"],
+[data-font-family="system"] body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif !important;
+}
+
+[data-color-theme="contrast"] {
+  --color-ink: #000000;
+  --color-panel: #000000;
+  --color-panel-2: #0a0a0a;
+  --color-snow: #ffffff;
+  --color-mist: #e6e6e6;
+  --color-line: #ffffff;
+  --color-gold: #ffff00;
+  --color-gold-deep: #ffff00;
+}
+[data-color-theme="contrast"] .world {
+  --w-bg: #000000;
+  --w-fg: #ffffff;
+  --w-muted: #e6e6e6;
+  --w-accent: #ffff00;
+  --w-accent-ink: #000000;
+  --w-line: #ffffff;
+  --w-chip: #0a0a0a;
+}
+[data-color-theme="contrast"] * {
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
+[data-colorblind="deuteranopia"] { filter: url(#a11y-deuteranopia) contrast(1.05); }
+[data-colorblind="protanopia"] { filter: url(#a11y-protanopia) contrast(1.05); }
+[data-colorblind="tritanopia"] { filter: url(#a11y-tritanopia) contrast(1.05); }
+[data-colorblind="monochrome"] { filter: grayscale(100%); }
+
+[data-reduce-motion="true"] *,
+[data-reduce-motion="true"] *::before,
+[data-reduce-motion="true"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+html[data-read-line-guide="true"] body::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: var(--a11y-line-y, 50%);
+  height: 2px;
+  background: var(--color-gold);
+  opacity: 0.55;
+  z-index: 9998;
+  pointer-events: none;
+}
+
+[data-highlight-links="true"] a[href] {
+  text-decoration: underline !important;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
 }
