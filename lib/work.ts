@@ -212,10 +212,10 @@ export const caseStudies: CaseStudy[] = [
     problem:
       "A kids' robotics company runs camps and workshops all over Barbados, and assigning twenty instructors to seventeen events ran on spreadsheets and PDFs. Double bookings, unavailable dates and unfilled slots were found out on the morning, not the week before.",
     build: [
-      "Drag-and-drop scheduling: pull instructors from the roster rail onto event cards across a weekly calendar, with tap-to-assign on mobile",
+      "Drag-and-drop scheduling: pull instructors from the roster rail onto event days across a weekly calendar, with tap-to-assign on mobile and CSV/PDF exports",
       "Automatic conflict detection for double bookings, unavailable dates and fatigue streaks, flagged before they reach the venue",
-      "Tokenised invite links so each instructor sees only their own schedule, plus per-day shirt colours, event drawers and a print-friendly weekly view",
-      "Seeded with the real operation: 20 staff profiles, 17 events, role-based admin and instructor views",
+      "Attendance confirmation plus Hours & Pay tracking and a workload view, so instructor effort is visible instead of anecdotal",
+      "Tokenised invite links with instructor self-service views, seeded with the real operation: 20 staff profiles, 17 events",
     ],
     outcome:
       "Built free over two days to close the gap while working with the business. In the end it was not taken on, so it now lives as an open artefact: proof of how far a clear idea can get in a weekend, and an honest to-do list.",
@@ -232,8 +232,8 @@ export const caseStudies: CaseStudy[] = [
       height: DH,
     },
     secondary: {
-      src: "/work/raschedule/events.webp",
-      alt: "RASyncbot events list showing seventeen Barbados robotics camps and workshops with draft and confirmed statuses",
+      src: "/work/raschedule/calendar.webp",
+      alt: "RASyncbot calendar view showing the weekly schedule of robotics camps and workshop events",
       width: D,
       height: DH,
     },
