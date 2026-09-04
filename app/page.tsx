@@ -308,8 +308,8 @@ function WorkIntro() {
           </h2>
           <p className="mt-6 max-w-2xl text-lg text-mist">
             No mockups. Four platforms serve businesses right now, and the
-            fifth was a two-day rapid build. Every screenshot is taken straight
-            from the running software.
+            fifth is a rapid build that has since been fully revamped. Every
+            screenshot is taken straight from the running software.
           </p>
         </Reveal>
       </div>
@@ -460,14 +460,23 @@ function Contact() {
               ceejaycumberbatch@gmail.com
             </a>
             <a
-              href="https://github.com/FamineDT246"
+              href="https://wa.me/12462427520"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-xl border border-line px-8 py-4 font-semibold text-snow transition hover:border-mist"
             >
-              GitHub
+              WhatsApp me
             </a>
           </div>
+          <p className="mt-6 text-mist">
+            Prefer to talk? Call or WhatsApp{" "}
+            <a
+              href="tel:+12462427520"
+              className="font-semibold text-snow underline decoration-gold/60 underline-offset-4 transition hover:decoration-gold"
+            >
+              +1 (246) 242-7520
+            </a>
+          </p>
           <p className="mt-16 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 font-mono text-xs uppercase tracking-[0.2em] text-mist">
             <span>Built in Barbados</span>
             <span aria-hidden="true">·</span>

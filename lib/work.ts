@@ -206,7 +206,7 @@ export const caseStudies: CaseStudy[] = [
     id: "raschedule",
     index: "05",
     name: "RASyncbot",
-    tagline: "A crew scheduling system built in two days",
+    tagline: "A crew scheduling system, rapid-built then fully revamped",
     world: "world-raschedule",
     eyebrow: "Rapid internal tool",
     problem:
@@ -218,13 +218,12 @@ export const caseStudies: CaseStudy[] = [
       "Tokenised invite links with instructor self-service views, seeded with the real operation: 20 staff profiles, 17 events",
     ],
     outcome:
-      "Built free over two days to close the gap while working with the business. In the end it was not taken on, so it now lives as an open artefact: proof of how far a clear idea can get in a weekend, and an honest to-do list.",
+      "Built free to close the gap while working with the business. In the end it was not taken on, so it lives on as a live product: a rapid first build that has since had a full UI revamp and keeps improving.",
     stack: ["Next.js", "TypeScript", "dnd-kit", "Prisma", "Turso", "TanStack Query"],
     role: ["Product", "Design", "Engineering"],
     year: "2026",
-    status: "Rapid build",
-    codeUrl: "https://github.com/FamineDT246/RASchedule",
-    codeLabel: "View the code on GitHub",
+    status: "Rapid build, since revamped",
+    liveUrl: "https://ra-syncbot.com",
     primary: {
       src: "/work/raschedule/scheduler.webp",
       alt: "RASyncbot scheduler: instructor roster rail beside a weekly calendar of robotics camps with 28 of 30 slots filled",
@@ -241,8 +240,8 @@ export const caseStudies: CaseStudy[] = [
 ];
 
 export const stats = [
-  { value: "05", label: "products designed, built and shipped" },
-  { value: "03", label: "businesses running on them daily" },
+  { value: "05", label: "products built" },
+  { value: "05", label: "businesses served" },
   { value: "BBD", label: "every price, invoice and report in local currency" },
 ];
 
