@@ -186,7 +186,7 @@ export default function Nav() {
             </svg>
           </a>
           <a
-            href="mailto:ceejaycumberbatch@gmail.com?subject=Portfolio%20Inquiry"
+            href="mailto:hello@coreislesolutions.com?subject=Portfolio%20Inquiry"
             className="whitespace-nowrap rounded-lg bg-gold px-4 py-2 text-sm font-semibold text-ink transition hover:bg-gold-deep"
           >
             Let&apos;s talk

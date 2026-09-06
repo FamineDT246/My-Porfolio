@@ -55,7 +55,7 @@ function Hero() {
               See the work
             </a>
             <a
-              href="mailto:ceejaycumberbatch@gmail.com?subject=Portfolio%20Inquiry"
+              href="mailto:hello@coreislesolutions.com?subject=Portfolio%20Inquiry"
               className="rounded-xl border border-line px-6 py-3.5 font-semibold text-snow transition hover:border-mist"
             >
               Start a project
@@ -454,10 +454,10 @@ function Contact() {
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a
-              href="mailto:ceejaycumberbatch@gmail.com?subject=Portfolio%20Inquiry"
+              href="mailto:hello@coreislesolutions.com?subject=Portfolio%20Inquiry"
               className="rounded-xl bg-gold px-8 py-4 font-semibold text-ink transition hover:bg-gold-deep"
             >
-              ceejaycumberbatch@gmail.com
+              hello@coreislesolutions.com
             </a>
             <a
               href="https://wa.me/12462427520"
